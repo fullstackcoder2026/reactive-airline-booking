@@ -1,4 +1,14 @@
 package com.airline.reactive_airline_booking.repository;
 
-public class FlightRepository {
+import com.airline.reactive_airline_booking.model.Flight;
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
+import reactor.core.publisher.Flux;
+
+import java.time.LocalDateTime;
+
+public interface FlightRepository extends ReactiveMongoRepository {
+    Flux<Flight> findByOriginAndDestinationAndDepartureTimeBetween(
+            String origin, String destination, LocalDateTime start, LocalDateTime end);
+    Flux<Flight> findByAvailableSeatsGreaterThan(Integer seats);
+
 }
