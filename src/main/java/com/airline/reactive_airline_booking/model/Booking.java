@@ -26,6 +26,9 @@ public class Booking {
     private LocalDateTime bookingTime;
     private String confirmationCode;
 
+    public Booking(String id, String passengerId, String passengerName, String passengerEmail, String seatNumber, Double price) {
+    }
+
     public enum BookingStatus {
         PENDING, CONFIRMED, CANCELLED, COMPLETED
     }
